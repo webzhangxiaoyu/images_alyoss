@@ -36,7 +36,7 @@ __建议测试阶段勾选不校验合法域名，因为小程序一个月就只
 
 修改DEMO中的密钥和地址
 
-![图片名称](https://github.com/webzhangxiaoyu/images/blob/master/id.png)
+![图片名称](http://m.qpic.cn/psb?/V11dC1Jo07oE8Y/D1w80Fak*g2Ebvs9vQku6sN3RbknKHjc0uGVm.ccdw4!/b/dLYAAAAAAAAA&bo=*gF0AwAAAAARB7g!&rf=viewer_4)
 
 使用修改参数后的阿里OSS官方MODE就可以打开index.html进行上传测试了
 
