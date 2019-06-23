@@ -40,6 +40,43 @@ __建议测试阶段勾选不校验合法域名，因为小程序一个月就只
 
 使用修改参数后的阿里OSS官方MODE就可以打开index.html进行上传测试了
 
+## 小程序上传
+  Taro.chooseImage({
+      count: 1,
+      sizeType: ['original'],
+      sourceType: ['album'],
+      success (res) {
+        console.log(res)
+        var uploadImage = require('../../utils/upload/uploadFile.js'); //地址换成你自己存放文件的位置
+        var util = require('../../utils/upload/util.js');
+        var nowTime = util.formatTime(new Date());    
+
+      for (var i = 0; i < res.tempFilePaths.length; i++) {
+        Taro.showLoading({
+            title: '上传中' + (i + 1) + '/' + res.tempFilePaths.length,
+            mask: true
+         })
+
+          uploadImage(res.tempFilePaths[i], 'images/' + nowTime + '/',
+          function (result,val) {
+            _this.setState({resulturl:result})
+            Taro.showLoading({
+              title: '上传成功',
+              icon: 'success',
+              mask: true,
+            });
+          }, function (result) {
+            Taro.showLoading({
+              title: '上传失败',
+              icon: 'success',
+              mask: true,
+            });
+          }
+      ) 
+    }
+
+  }
+})
 
 
 
