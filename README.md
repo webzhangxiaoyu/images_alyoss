@@ -44,15 +44,9 @@ __建议测试阶段勾选不校验合法域名，因为小程序一个月就只
 
 配置文件：config.js
 
-var fileHost = "";//你的阿里云OSS地址  在你当前小程序的公众号后台的uploadFile 合法域名也要配上这个域名
-var config = {
-   uploadImageUrl: `${fileHost}`, // 默认存在根目录，可根据需求改
-   AccessKeySecret: '',        // AccessKeySecret 去你的阿里云上控制台上找
-   OSSAccessKeyId: '',         // AccessKeyId 去你的阿里云上控制台上找
-   timeout: 80000 //这个是上传文件时Policy的失效时间
-};
+![图片名称](http://m.qpic.cn/psb?/V11dC1Jo07oE8Y/U*BCMe2.HMaHzzcAjqDASGS274KAS*93TyZa7..3W6M!/b/dFMBAAAAAAAA&bo=6gV4AQAAAAARB6Y!&rf=viewer_4)
 
-页面调用
+小程序调用
 
   Taro.chooseImage({
       count: 1,
