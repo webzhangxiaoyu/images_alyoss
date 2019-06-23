@@ -48,41 +48,48 @@ __建议测试阶段勾选不校验合法域名，因为小程序一个月就只
 
 小程序调用
 
-  Taro.chooseImage({
-      count: 1,
-      sizeType: ['original'],
-      sourceType: ['album'],
-      success (res) {
-        console.log(res)
-        var uploadImage = require('../../utils/upload/uploadFile.js'); //地址换成你自己存放文件的位置
-        var util = require('../../utils/upload/util.js');
-        var nowTime = util.formatTime(new Date());    
+Taro.chooseImage({
 
-      for (var i = 0; i < res.tempFilePaths.length; i++) {
-        Taro.showLoading({
-            title: '上传中' + (i + 1) + '/' + res.tempFilePaths.length,
-            mask: true
-         })
+	count: 1,
+  
+	sizeType: ['original'],
+  
+	sourceType: ['album'],
+  
+	success(res) {
+  
+		console.log(res) var uploadImage = require('../../utils/upload/uploadFile.js');
+    
+		var util = require('../../utils/upload/util.js');
+    
+		var nowTime = util.formatTime(new Date());
 
-          uploadImage(res.tempFilePaths[i], 'images/' + nowTime + '/',
-          function (result,val) {
-            _this.setState({resulturl:result})
-            Taro.showLoading({
-              title: '上传成功',
-              icon: 'success',
-              mask: true,
-            });
-          }, function (result) {
-            Taro.showLoading({
-              title: '上传失败',
-              icon: 'success',
-              mask: true,
-            });
-          }
-      ) 
-    }
+		for (var i = 0; i < res.tempFilePaths.length; i++) {
+			Taro.showLoading({
+				title: '上传中' + (i + 1) + '/' + res.tempFilePaths.length,
+				mask: true
+			})
 
-  }
+			uploadImage(res.tempFilePaths[i], 'images/' + nowTime + '/',
+			function(result, val) {
+				_this.setState({
+					resulturl: result
+				}) Taro.showLoading({
+					title: '上传成功',
+					icon: 'success',
+					mask: true,
+				});
+			},
+			function(result) {
+				Taro.showLoading({
+					title: '上传失败',
+					icon: 'success',
+					mask: true,
+				});
+			})
+		}
+
+	}
 })
 
 
