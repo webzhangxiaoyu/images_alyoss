@@ -41,6 +41,19 @@ __建议测试阶段勾选不校验合法域名，因为小程序一个月就只
 使用修改参数后的阿里OSS官方MODE就可以打开index.html进行上传测试了
 
 ## 小程序上传
+
+配置文件：config.js
+
+var fileHost = "";//你的阿里云OSS地址  在你当前小程序的公众号后台的uploadFile 合法域名也要配上这个域名
+var config = {
+   uploadImageUrl: `${fileHost}`, // 默认存在根目录，可根据需求改
+   AccessKeySecret: '',        // AccessKeySecret 去你的阿里云上控制台上找
+   OSSAccessKeyId: '',         // AccessKeyId 去你的阿里云上控制台上找
+   timeout: 80000 //这个是上传文件时Policy的失效时间
+};
+
+页面调用
+
   Taro.chooseImage({
       count: 1,
       sizeType: ['original'],
